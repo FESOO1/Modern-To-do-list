@@ -124,7 +124,8 @@ body {
     border-radius: 0.4rem;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
 }
 
 .output::after {
@@ -139,12 +140,11 @@ body {
 }
 
 .output-delete-button {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 15px;
     right: 15px;
-    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,6 +159,8 @@ body {
 
 .output-delete-button-svg {
     color: white;
+    width: 15px;
+    height: 15px;
 }
 
 .output-delete-button:hover {
