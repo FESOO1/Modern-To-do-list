@@ -1,6 +1,7 @@
 const todoTextInput = document.getElementById('todoTextInput');
 const addButton = document.getElementById('addButton');
 const outputContainer = document.querySelector('.output-container');
+const anArray = []
 
 addButton.addEventListener('click', e => {
     e.preventDefault();
@@ -21,7 +22,9 @@ addButton.addEventListener('click', e => {
     </div>
     `;
 
-    localStorage.setItem('task', taskText);
+    anArray.push(taskText);
+
+    localStorage.setItem('task', anArray);
 
     todoTextInput.value = '';
 
@@ -47,12 +50,12 @@ addButton.addEventListener('click', e => {
 
 
 function displayData() {
-    const taskItself = localStorage.getItem('task');
+    const taskItself = JSON.stringify(localStorage.getItem('task'));
     if (taskItself) {
-        for (let i = 0; i < taskItself.length; i++) {
+        for (let i = 0; i < anArray.length; i++) {
             outputContainer.innerHTML += `
             <div class="output">
-                <p class="output-text-itself">${taskItself}</p>
+                <p class="output-text-itself">${taskItself[i]}</p>
                 <button class="output-delete-button">
                     <svg class="output-delete-button-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                         <path d="M19.5 5.5L18.8803 15.5251C18.7219 18.0864 18.6428 19.3671 18.0008 20.2879C17.6833 20.7431 17.2747 21.1273 16.8007 21.416C15.8421 22 14.559 22 11.9927 22C9.42312 22 8.1383 22 7.17905 21.4149C6.7048 21.1257 6.296 20.7408 5.97868 20.2848C5.33688 19.3626 5.25945 18.0801 5.10461 15.5152L4.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
